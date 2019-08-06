@@ -6,7 +6,8 @@
     <title>Survey</title>
     <link rel="stylesheet" type="text/css" href="/style.css">
     <script src="https://code.jquery.com/jquery.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
 
@@ -39,8 +40,8 @@
                     <option value="5">5 (Strongly Agree)</option>
                 </select>
                 <br>
-                
-                
+
+
 
                 <p><strong>2.) Do you make friends easily?</strong>
                 </p>
@@ -52,7 +53,7 @@
                     <option value="5">5 (Strongly Agree)</option>
                 </select>
                 <br>
-                
+
 
 
                 <p><strong>3.) Do you believe mountains are better then oceans?</strong></p>
@@ -64,11 +65,69 @@
                     <option value="5">5 (Strongly Agree)</option>
                 </select>
                 <br>
-                
+
             </div>
             <br>
             <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit" data-toggle="answers"
                 data-target="#friendanswers">Submit</button>
 
-                
+            <script type="text/javascript">
+
+                $("#submit").on("click", function (event) {
+                    event.preventDefault();
+                    var totalScore = 0;
+                    function validateForm() {
+                        var isValid = true;
+                        $(".form-control").each(function () {
+                            if ($(this).val() === "") {
+                                isValid = false;
+                            }
+                        });
+                        $(".chosen-select").each(function () {
+                            if ($(this).val() === "") {
+                                isValid = false;
+                            }
+                        });
+                        return isValid;
+                    }
+                    if (validateForm()) {
+                        var newFriend = {
+                            name: $("#name").val().trim(),
+                            photo: $("#photo").val().trim(),
+                            scores: [
+                                $('#q1').val().trim(),
+                                $('#q2').val().trim(),
+                                $('#q3').val().trim(),
+                                $('#q4').val().trim(),
+                                $('#q5').val().trim(),
+                                $('#q6').val().trim(),
+                                $('#q7').val().trim(),
+                                $('#q8').val().trim(),
+                                $('#q9').val().trim(),
+                                $('#q10').val().trim(),
+                            ]
+                        };
+                        console.log(newFriend);
+
+                        $.post("/api/friends", newFriend,
+                            function (data) {
+                                $("#name").val("");
+                                $("#photo").val("");
+                                $("#q1 option:selected");
+                                $("#q2 option:selected");
+                                $("#q3 option:selected");
+                                $("#q4 option:selected");
+                                $("#q5 option:selected");
+                                $("#q6 option:selected");
+                                $("#q7 option:selected");
+                                $("#q8 option:selected");
+                                $("#q9 option:selected");
+                                $("#q10 option:selected");
+                            });
+                    }
+                });
+
+            </script>
 </body>
+
+</html>
