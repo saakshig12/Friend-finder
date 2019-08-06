@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Survey</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Questions</h1>
+            <p>Complete the survey below to find your match!</p>
+            <br>
+            <div class="form-group">
+                <label for="name"><strong>Name</strong></label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                <br>
+                <hr>
+            </div>
+        </div>
+    </div>
+
+    <div class="container questions">
+        <div class=jumbotron>
+            <div class="form-group">
+
+                <p><strong>1.) Happily ever after exists?</strong></p>
+                <select class="choice" id="q1" placeholder="choice">
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                </select>
+                <br>
+                
+                
+
+                <p><strong>2.) Do you make friends easily?</strong>
+                </p>
+                <select class="choice" id="q2" placeholder="choice">
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                </select>
+                <br>
+                
+
+
+                <p><strong>3.) Do you believe mountains are better then oceans?</strong></p>
+                <select class="choice" id="q3" placeholder="choice">
+                    <option value="1">1 (Strongly Disagree)</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                </select>
+                <br>
+                
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit" data-toggle="answers"
+                data-target="#friendanswers">Submit</button>
+
+                
