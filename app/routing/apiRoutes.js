@@ -2,7 +2,7 @@ var friends = require('../data/friends');
 
 module.exports = function (app) {
 
-    app.get('/app/data/friends', function(req,res){
+    app.get('/data/friend', function(req,res){
         var match = req.params.friends;
   
     console.log(match);
@@ -15,7 +15,7 @@ module.exports = function (app) {
     return res.json(false);
   });
 }
-app.post("/app/data/friends", function(req, res) {
+app.post("/data/friends", function(req, res) {
     var scoreCal;
         var userData = req.body;
         var match = {
